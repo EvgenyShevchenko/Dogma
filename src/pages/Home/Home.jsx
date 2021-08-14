@@ -1,5 +1,4 @@
 import Container from "react-bootstrap/Container";
-
 import LoginForm from "../../components/LoginForm";
 
 const Home = () => {
@@ -7,7 +6,7 @@ const Home = () => {
     return (
         <Container className="home__wrapper">
             <h1 className="home__title">Dogma</h1>
-               <LoginForm/>
+            <LoginForm/>
         </Container>
     )
 }

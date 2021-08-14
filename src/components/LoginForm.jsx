@@ -1,14 +1,14 @@
 import {useState} from "react";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import Form from "react-bootstrap/Form";
-import {Button} from "react-bootstrap";
+import {Form,Button} from "react-bootstrap";
 import {useSelector} from "react-redux";
-
+import {useHistory} from "react-router-dom";
 
 const LoginForm = () => {
     const [currentLogin, setCurrentLogin] = useState('')
     const [currentPassword, setCurrentPassword] = useState('')
     const {login, password} = useSelector(state => state.toolkit)
+    const history = useHistory()
 
     const onChangeLogin = (e) => {
         setCurrentLogin(e.target.value)
@@ -20,14 +20,12 @@ const LoginForm = () => {
 
     const onHandleSubmit = (e) => {
         e.preventDefault()
-        if(currentLogin === login && currentPassword === password){
-            console.log('ok')
-        }
+        history.push('/profile')
     }
 
     return (
         <div className="form_wrapper">
-            <form className="form">
+            <form className="form" onSubmit={e => onHandleSubmit(e)}>
                 <FloatingLabel
                     controlId="floatingInput"
                     label="Enter login"
@@ -50,10 +48,10 @@ const LoginForm = () => {
                 </FloatingLabel>
                 <Button variant="primary"
                         type="submit"
-                        className="w-25 fw-bold"
-                        onClick={e => onHandleSubmit(e)}
+                        className='w-25'
+                        disabled={currentLogin !== login || currentPassword !== password}
                 >
-                    Login
+                    Войти
                 </Button>
             </form>
         </div>
