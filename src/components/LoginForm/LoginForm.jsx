@@ -29,7 +29,7 @@ const LoginForm = () => {
                 <FloatingLabel
                     controlId="floatingInput"
                     label="Enter login"
-                    className="mb-3"
+                    className="mb-3 "
                 >
                     <Form.Control
                         type="text"

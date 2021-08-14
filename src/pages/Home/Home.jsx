@@ -1,5 +1,5 @@
 import Container from "react-bootstrap/Container";
-import LoginForm from "../../components/LoginForm";
+import LoginForm from "../../components/LoginForm/LoginForm";
 
 const Home = () => {
 
